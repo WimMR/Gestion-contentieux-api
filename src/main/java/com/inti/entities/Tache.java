@@ -45,6 +45,9 @@ public class Tache {
 	
 	private boolean isShared;
 	private boolean isFinished;
+	public Tache() {
+		
+	}
 	
 	
 	public Tache ()

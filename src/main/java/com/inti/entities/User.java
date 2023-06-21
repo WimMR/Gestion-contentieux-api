@@ -27,7 +27,7 @@ public class User implements Serializable {
 	private String prenomUtilisateur ;
 	
 	@OneToMany
-	@JsonIgnore
+	//@JsonIgnore
 	private List<Tache> taches;
 	
 	public User() {

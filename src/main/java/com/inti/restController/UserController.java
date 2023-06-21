@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.entities.Tache;
 import com.inti.entities.User;
 import com.inti.services.interfaces.IUserService;
 
@@ -22,6 +23,7 @@ public class UserController {
 
 	@Autowired
 	IUserService userService;
+
 
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public List<User> findAll() {
@@ -48,4 +50,8 @@ public class UserController {
 
 	}
 
+	@PostMapping("/users")
+	public User saveUser(@RequestBody User user) {
+		return userService.save(user);
+	}
 }
