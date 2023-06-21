@@ -3,11 +3,13 @@ package com.inti.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.User;
 import com.inti.repositories.UserRepository;
 import com.inti.services.interfaces.IUserService;
 
+@Service
 public class UserService implements IUserService {
 	
 	@Autowired

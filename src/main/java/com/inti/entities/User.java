@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -14,8 +15,8 @@ import org.hibernate.annotations.GeneratorType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table (name = "USERS", schema = "gestion_contentieux_db")
-public class User {
+@Table (name = "USERS"/*, schema = "gestion_contentieux_db"*/)
+public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUtilisateur;
@@ -25,20 +26,20 @@ public class User {
 	private String nomUtilisateur;
 	private String prenomUtilisateur ;
 	
-	@OneToMany
+	/*@OneToMany
 	@JsonIgnore
-	private List<tache> taches;
+	private List<tache> taches;*/
 	
 	public User() {
 		
 	}
 
-	public User(Long idUtilisateur, String email, String nomUtilisateur, String prenomUtilisateur, List<tache> taches) {
+	public User(Long idUtilisateur, String email, String nomUtilisateur, String prenomUtilisateur/*, List<tache> taches*/) {
 		this.idUtilisateur = idUtilisateur;
 		this.email = email;
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
-		this.taches = taches;
+		//this.taches = taches;
 	}
 
 	public Long getIdUtilisateur() {
@@ -73,13 +74,13 @@ public class User {
 		this.prenomUtilisateur = prenomUtilisateur;
 	}
 
-	public List<tache> getTaches() {
+	/*public List<tache> getTaches() {
 		return taches;
 	}
 
 	public void setTaches(List<tache> taches) {
 		this.taches = taches;
-	}
+	}*/
 
 	@Override
 	public String toString() {
