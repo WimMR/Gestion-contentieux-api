@@ -10,6 +10,6 @@ import com.inti.entities.Document;
 @Repository
 public interface DocumentRepository extends JpaRepository<Document, Long> {
 	//Document findByNameDocument (String nameDocument);
-	List<Document> findByCaseDocument(String caseDocument);
+	//List<Document> findByCaseDocument(String caseDocument);
 
 }

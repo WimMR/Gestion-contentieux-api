@@ -11,5 +11,5 @@ public interface ICaseService {
 	Case save(Case caseObject);
 	void delete (Long id);
 	//Case findByReferenceCase(String referenceCase);
-	List<Case> findByReferenceCase(String referenceCase);
+	//List<Case> findByReferenceCase(String referenceCase);
 }
