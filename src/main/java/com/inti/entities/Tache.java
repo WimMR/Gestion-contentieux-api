@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.inti.enums.Priorite;
@@ -35,6 +36,9 @@ public class Tache {
 	@ManyToMany
 	private List<User> collaborators = new ArrayList<>();
 	
+	@OneToOne(mappedBy="tacheCase")
+	private Case caseTache;
+	
 	@Enumerated(EnumType.STRING)
 	private Priorite priorite;
 	
@@ -45,6 +49,11 @@ public class Tache {
 		
 	}
 	
+	
+	public Tache ()
+	{
+		
+	}
 	public Tache(String title, String description, Date dateLimite, User owner, List<User> collaborators,
 			Priorite priorite, boolean isShared, boolean isFinished) {
 		super();

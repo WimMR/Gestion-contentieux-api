@@ -24,7 +24,8 @@ public class UserController {
 	@Autowired
 	IUserService userService;
 
-	@RequestMapping("/users")
+
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public List<User> findAll() {
 		return userService.findAll();
 	}
