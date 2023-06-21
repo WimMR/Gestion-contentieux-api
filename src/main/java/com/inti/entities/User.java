@@ -28,13 +28,13 @@ public class User implements Serializable {
 	
 	@OneToMany
 	@JsonIgnore
-	private List<tache> taches;
+	private List<Tache> taches;
 	
 	public User() {
 		
 	}
 
-	public User(Long idUtilisateur, String email, String nomUtilisateur, String prenomUtilisateur, List<tache> taches) {
+	public User(Long idUtilisateur, String email, String nomUtilisateur, String prenomUtilisateur, List<Tache> taches) {
 		this.idUtilisateur = idUtilisateur;
 		this.email = email;
 		this.nomUtilisateur = nomUtilisateur;
@@ -74,11 +74,11 @@ public class User implements Serializable {
 		this.prenomUtilisateur = prenomUtilisateur;
 	}
 
-	public List<tache> getTaches() {
+	public List<Tache> getTaches() {
 		return taches;
 	}
 
-	public void setTaches(List<tache> taches) {
+	public void setTaches(List<Tache> taches) {
 		this.taches = taches;
 	}
 

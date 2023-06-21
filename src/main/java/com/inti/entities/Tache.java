@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import com.inti.enums.Priorite;
 
 @Entity
-@Table(name="TACHES", schema = "gestion_contentieux_db")
+@Table(name="TACHES")
 public class Tache {
 
 	@Id
