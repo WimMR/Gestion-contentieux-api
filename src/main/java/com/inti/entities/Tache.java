@@ -41,6 +41,9 @@ public class Tache {
 	
 	private boolean isShared;
 	private boolean isFinished;
+	public Tache() {
+		
+	}
 	
 	public Tache(String title, String description, Date dateLimite, User owner, List<User> collaborators,
 			Priorite priorite, boolean isShared, boolean isFinished) {
