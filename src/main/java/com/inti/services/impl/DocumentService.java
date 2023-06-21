@@ -37,10 +37,10 @@ public class DocumentService implements IDocumentService {
 		
 	}
 
-	@Override
+	/*@Override
 	public List<Document> findByCaseDocument(String nameDocument) {
 		return documentRepository.findByCaseDocument(nameDocument);
-	}
+	}*/
 
 
 

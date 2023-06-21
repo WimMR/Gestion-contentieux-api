@@ -27,11 +27,16 @@ public class DocumentController {
 	{
 		return documentService.findAll();
 	}
-	@GetMapping("/documents/{name}")
+	
+	@GetMapping("/documents/{idDoc}")
+	public Document findOne(@PathVariable("idDoc") Long id) {
+		return documentService.findOne(id);
+	}
+	/*@GetMapping("/documents/{name}")
 	public List<Document> findByCaseDocument(@PathVariable("name")String name)
 	{
 		return documentService.findByCaseDocument(name);
-	}
+	}*/
 	
 	@PostMapping("/documents")
 	public Document saveDocument(@RequestBody Document document)

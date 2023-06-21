@@ -27,11 +27,17 @@ public class CaseController {
 	{
 		return caseService.findAll();
 	}
-	@GetMapping("/cases/{ref}")
+	
+	@GetMapping("/cases/{idCase}")
+	public Case findOne(@PathVariable("idCase") Long id) {
+		return caseService.findOne(id);
+	}
+	
+	/*@GetMapping("/cases/{ref}")
 	public List<Case> findByReferenceCase(@PathVariable("ref")String ref)
 	{
 		return caseService.findByReferenceCase(ref);
-	}
+	}*/
 	
 	@PostMapping("/cases")
 	public Case saveCase(@RequestBody Case caseObject)

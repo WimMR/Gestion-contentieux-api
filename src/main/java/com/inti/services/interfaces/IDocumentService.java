@@ -11,5 +11,5 @@ public interface IDocumentService {
 	Document save(Document documentObject);
 	void delete (Long id);
 	//Document findByNameDocument(String nameDocument);
-	List<Document> findByCaseDocument(String caseDocument);
+	//List<Document> findByCaseDocument(String caseDocument);
 }

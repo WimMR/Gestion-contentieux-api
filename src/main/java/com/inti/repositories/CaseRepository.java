@@ -10,6 +10,6 @@ import com.inti.entities.Case;
 @Repository
 public interface CaseRepository extends JpaRepository<Case, Long>{
 	//Case findByReferenceCase(String referenceCase);
-	List<Case> findByReferenceCase(String referenceCase);
+	//List<Case> findByReferenceCase(String referenceCase);
 	
 }

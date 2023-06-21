@@ -35,10 +35,10 @@ public class CaseService implements ICaseService{
 		
 	}
 
-	@Override
+	/*@Override
 	public List<Case> findByReferenceCase(String referenceCase) {
 		return caseRepository.findByReferenceCase(referenceCase);
-	}
+	}*/
 
 
 
