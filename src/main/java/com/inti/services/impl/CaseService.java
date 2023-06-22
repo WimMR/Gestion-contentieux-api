@@ -1,6 +1,7 @@
 package com.inti.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,13 @@ public class CaseService implements ICaseService{
 	}
 
 	@Override
+	public Optional <Case> findOneTest(Long id) {
+		return caseRepository.findById(id);
+	}
+	/*@Override
 	public Case findOne(Long id) {
 		return caseRepository.findById(id).get();
-	}
+	}*/
 
 	@Override
 	public Case save(Case caseObject) {

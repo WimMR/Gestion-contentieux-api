@@ -1,6 +1,7 @@
 package com.inti.restController;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +30,8 @@ public class DocumentController {
 	}
 	
 	@GetMapping("/documents/{idDoc}")
-	public Document findOne(@PathVariable("idDoc") Long id) {
-		return documentService.findOne(id);
+	public Optional<Document> findOneTest(@PathVariable("idDoc") Long id) {
+		return documentService.findOneTest(id);
 	}
 	/*@GetMapping("/documents/{name}")
 	public List<Document> findByCaseDocument(@PathVariable("name")String name)
@@ -51,14 +52,25 @@ public class DocumentController {
 	}
 	
 	@PutMapping("/documents/{idDoc}")
-	public Document updateDocument(@PathVariable("idDocument")Long id, @RequestBody Document document)
+	public Optional<Document> updateDocument(@PathVariable("idDocument")Long id, @RequestBody Document document)
 	{
-		Document currentDocument =documentService.findOne(id);
-		currentDocument.setCreationDateDoc(document.getCreationDateDoc());
-		currentDocument.setDescriptionDoc(document.getDescriptionDoc());
-		currentDocument.setNameDoc(document.getNameDoc());
-		currentDocument.setCaseDocument(document.getCaseDocument());
-		return documentService.save(currentDocument);
+		Optional<Document> testDoc = documentService.findOneTest(id);
+		Document currentDocument =new Document();
+
+		if (testDoc.isPresent())
+		{
+			currentDocument =testDoc.get();
+			currentDocument.setCreationDateDoc(document.getCreationDateDoc());
+			currentDocument.setDescriptionDoc(document.getDescriptionDoc());
+			currentDocument.setNameDoc(document.getNameDoc());
+			currentDocument.setCaseDocument(document.getCaseDocument());
+			return Optional.of(documentService.save(currentDocument));
+		}
+		else 
+			{
+				currentDocument =null;
+				return Optional.ofNullable(currentDocument);
+			}
 	}
 	
 }
