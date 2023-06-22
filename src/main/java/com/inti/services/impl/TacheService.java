@@ -1,6 +1,7 @@
 package com.inti.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +18,12 @@ public class TacheService implements ITacheService{
 
 	@Override
 	public List<Tache> findAll() {
-		return tacheRepository.findAll();	}
+		return tacheRepository.findAll();
+	}
 	
 	@Override
-	public Tache findOne(Long id) {
-		return tacheRepository.findById(id).get();
+	public Optional<Tache> findOne(Long id) {
+		return tacheRepository.findById(id);
 	}
 
 	@Override
