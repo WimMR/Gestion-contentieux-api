@@ -1,6 +1,7 @@
 package com.inti.services.interfaces;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.inti.entities.Tache;
 
@@ -8,7 +9,7 @@ public interface ITacheService {
 	
 	List<Tache> findAll();
 	
-	Tache findOne(Long id);
+	Optional<Tache> findOne(Long id);
 	
 	Tache save(Tache tache);
 	
