@@ -54,7 +54,6 @@ public class Tache {
 		this.title = title;
 	}
 	
-	
 	public Tache(String title, String description, Date dateLimite, User owner, List<User> collaborators,
 			Priorite priorite, boolean isShared, boolean isFinished) {
 		super();

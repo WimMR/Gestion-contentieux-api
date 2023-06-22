@@ -1,6 +1,7 @@
 package com.inti.restController;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +30,8 @@ public class CaseController {
 	}
 	
 	@GetMapping("/cases/{idCase}")
-	public Case findOne(@PathVariable("idCase") Long id) {
-		return caseService.findOne(id);
+	public Optional<Case> findOneTest(@PathVariable("idCase") Long id) {
+		return (caseService.findOneTest(id));
 	}
 	
 	/*@GetMapping("/cases/{ref}")
@@ -52,14 +53,25 @@ public class CaseController {
 	}
 	
 	@PutMapping("/cases/{idCase}")
-	public Case updateCase(@PathVariable("idCase")Long id, @RequestBody Case caseObject)
+	public Optional<Case> updateCase(@PathVariable("idCase")Long id, @RequestBody Case caseObject)
 	{
-		Case currentCase =caseService.findOne(id);
-		currentCase.setDescriptionCase(caseObject.getDescriptionCase());
-		currentCase.setReferenceCase(caseObject.getReferenceCase());
-		currentCase.setTitleCase(caseObject.getTitleCase());
-		currentCase.setStatus(caseObject.getStatus());
-		currentCase.setDocuments(caseObject.getDocuments());
-		return caseService.save(currentCase);
+		Optional<Case> testCase = caseService.findOneTest(id);
+		Case currentCase = new Case();
+		if (testCase.isPresent())
+		{
+			currentCase = testCase.get();
+			currentCase.setDescriptionCase(caseObject.getDescriptionCase());
+			currentCase.setReferenceCase(caseObject.getReferenceCase());
+			currentCase.setTitleCase(caseObject.getTitleCase());
+			currentCase.setStatus(caseObject.getStatus());
+			currentCase.setDocuments(caseObject.getDocuments());
+			return Optional.of(caseService.save(currentCase));
+		}
+		else 
+			{
+				currentCase= null;
+				return Optional.ofNullable(currentCase);
+			}
+
 	}
 }
