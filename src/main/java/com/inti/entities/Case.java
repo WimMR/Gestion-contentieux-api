@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="CASES")
@@ -26,6 +29,7 @@ public class Case implements Serializable {
 	private String titleCase;
 	private String descriptionCase;
 	private int status;
+	
 	
 	@OneToMany(mappedBy="caseDocument" /*,cascade = CascadeType.ALL, fetch=FetchType.LAZY*/)
 	private List<Document> documents =new ArrayList<>();

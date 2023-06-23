@@ -46,13 +46,13 @@ public class DocumentController {
 	}
 	
 	@DeleteMapping("/documents/{idDoc}")
-	public void deleteDocument(@PathVariable("idDocument")Long id)
+	public void deleteDocument(@PathVariable("idDoc")Long id)
 	{
 		documentService.delete(id);
 	}
 	
 	@PutMapping("/documents/{idDoc}")
-	public Optional<Document> updateDocument(@PathVariable("idDocument")Long id, @RequestBody Document document)
+	public Optional<Document> updateDocument(@PathVariable("idDoc")Long id, @RequestBody Document document)
 	{
 		Optional<Document> testDoc = documentService.findOneTest(id);
 		Document currentDocument =new Document();
@@ -63,7 +63,6 @@ public class DocumentController {
 			currentDocument.setCreationDateDoc(document.getCreationDateDoc());
 			currentDocument.setDescriptionDoc(document.getDescriptionDoc());
 			currentDocument.setNameDoc(document.getNameDoc());
-			currentDocument.setCaseDocument(document.getCaseDocument());
 			return Optional.of(documentService.save(currentDocument));
 		}
 		else 
