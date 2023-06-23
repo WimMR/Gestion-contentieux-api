@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="DOCUMENTS")
@@ -18,9 +23,11 @@ public class Document implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idDocument;
+	@Temporal (TemporalType.DATE)
 	private Date creationDateDoc;
 	private String nameDoc;
 	private String descriptionDoc;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="idCase")
@@ -74,9 +81,6 @@ public class Document implements Serializable{
 		this.descriptionDoc = descriptionDoc;
 	}
 
-	public Case getCaseDocument() {
-		return caseDocument;
-	}
 
 	public void setCaseDocument(Case caseDocument) {
 		this.caseDocument = caseDocument;
