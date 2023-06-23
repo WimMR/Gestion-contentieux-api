@@ -1,6 +1,7 @@
 package com.inti.restController;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +27,7 @@ public class TacheController {
 	}
 	
 	@GetMapping("/taches/{id}")
-	public Tache findOne(@PathVariable("id") Long id) {
+	public Optional<Tache> findOne(@PathVariable("id") Long id) {
 		return tacheService.findOne(id);
 	}
 	

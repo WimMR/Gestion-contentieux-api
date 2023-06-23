@@ -45,8 +45,11 @@ public class Tache {
 	
 	private boolean isShared;
 	private boolean isFinished;
-	public Tache() {
-		
+	
+	
+	public Tache (String title){
+		super();
+		this.title = title;
 	}
 	
 	public Tache(String title, String description, Date dateLimite, User owner, List<User> collaborators,
